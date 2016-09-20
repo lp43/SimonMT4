@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                       MyMath.mqh |
+//|                                                        Debug.mqh |
 //|                        Copyright 2016, MetaQuotes Software Corp. |
 //|                                              http://www.mql4.com |
 //+------------------------------------------------------------------+
@@ -10,53 +10,32 @@
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-class MyMath
+class Debug
   {
 private:
 
 public:
-                     MyMath();
-                    ~MyMath();
-                    double FindClosest(double &array[], double value);
-                    void ReverseArray(double &src_array[], double & des_array[]);
+                     Debug();
+                    ~Debug();
+                    void PrintArray(double &array[]);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-MyMath::MyMath()
+Debug::Debug()
   {
   }
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-MyMath::~MyMath()
+Debug::~Debug()
   {
   }
 //+------------------------------------------------------------------+
-double MyMath::FindClosest(double &array[],double value)
+void Debug::PrintArray(double &array[])
 {
-    double min = EMPTY_VALUE;
-    double closest = value;
-
-    for (double v : array) {
-        double diff = MathAbs(v - value);
-
-        if (diff < min) {
-            min = diff;
-            closest = v;
-        }
-    }
-
-    return closest;
-}
-
-void MyMath::ReverseArray(double &src_array[], double &des_array[])
-{
-   int src_array_size = ArraySize(src_array);
-   ArrayResize(des_array, src_array_size, 0);
-   for( int i = src_array_size - 1; i >= 0; i-- ) {
-      int desIdx = src_array_size - i - 1;
-      des_array[desIdx] = src_array[i];
-      //Alert("reverse::: src i = "+i+" => des i = "+desIdx);
+   for(int i =0; i<ArraySize(array);i++)
+   {
+      Alert("["+i+"] "+array[i]);
    }
 }
