@@ -19,6 +19,7 @@ public:
                     ~MyMath();
                     double FindClosest(double &array[], double value);
                     void ReverseArray(double &src_array[], double & des_array[]);
+                    int FindIdxByValue(double &src_array[], double value);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -59,4 +60,17 @@ void MyMath::ReverseArray(double &src_array[], double &des_array[])
       des_array[desIdx] = src_array[i];
       //Alert("reverse::: src i = "+i+" => des i = "+desIdx);
    }
+}
+
+int MyMath::FindIdxByValue(double &src_array[], double value)
+{
+    int found_idx = -1;
+    for(int i =0;i<ArraySize(src_array);i++){
+      //Alert("i: "+i+" is "+src_array[i]);
+      if(src_array[i]==value){
+         found_idx = i;
+         break;
+      }
+    }
+    return found_idx;
 }
