@@ -17,9 +17,9 @@ private:
 public:
                      MyMath();
                     ~MyMath();
-                    double FindClosest(double &array[], double value);
-                    void ReverseArray(double &src_array[], double & des_array[]);
-                    int FindIdxByValue(double &src_array[], double value);
+                    static double FindClosest(double &array[], double value);
+                    static void ReverseArray(double &src_array[], double & des_array[]);
+                    static int FindIdxByValue(double &src_array[], double value);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -34,7 +34,7 @@ MyMath::~MyMath()
   {
   }
 //+------------------------------------------------------------------+
-double MyMath::FindClosest(double &array[],double value)
+static double MyMath::FindClosest(double &array[],double value)
 {
     double min = EMPTY_VALUE;
     double closest = value;
@@ -51,7 +51,7 @@ double MyMath::FindClosest(double &array[],double value)
     return closest;
 }
 
-void MyMath::ReverseArray(double &src_array[], double &des_array[])
+static void MyMath::ReverseArray(double &src_array[], double &des_array[])
 {
    int src_array_size = ArraySize(src_array);
    ArrayResize(des_array, src_array_size, 0);
@@ -62,7 +62,7 @@ void MyMath::ReverseArray(double &src_array[], double &des_array[])
    }
 }
 
-int MyMath::FindIdxByValue(double &src_array[], double value)
+static int MyMath::FindIdxByValue(double &src_array[], double value)
 {
     int found_idx = -1;
     for(int i =0;i<ArraySize(src_array);i++){

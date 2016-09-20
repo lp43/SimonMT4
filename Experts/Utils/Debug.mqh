@@ -19,9 +19,9 @@ private:
 public:
                      Debug();
                     ~Debug();
-                    void PrintArray(double &array[]);
-                    void PrintPosition(Cursor &cursor, int positionIdx);
-                    void PrintPosition(Cursor &cursor, int & position[]);
+                    static void PrintArray(double &array[]);
+                    static void PrintPosition(Cursor &cursor, int positionIdx);
+                    static void PrintPosition(Cursor &cursor, int & position[]);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -36,7 +36,7 @@ Debug::~Debug()
   {
   }
 //+------------------------------------------------------------------+
-void Debug::PrintArray(double &array[])
+static void Debug::PrintArray(double &array[])
 {
    for(int i =0; i<ArraySize(array);i++)
    {
@@ -44,7 +44,7 @@ void Debug::PrintArray(double &array[])
    }
 }
 
-void Debug::PrintPosition(Cursor &cursor, int positionIdx)
+static void Debug::PrintPosition(Cursor &cursor, int positionIdx)
 {
    int position[2];
    cursor.GetPositionByIdx(positionIdx, position);
@@ -53,7 +53,7 @@ void Debug::PrintPosition(Cursor &cursor, int positionIdx)
    PrintPosition(cursor, position);
 }
 
-void Debug::PrintPosition(Cursor &cursor, int & position[])
+static void Debug::PrintPosition(Cursor &cursor, int & position[])
 {
    int cursorX = position[0];
    int cursorY = position[1];
