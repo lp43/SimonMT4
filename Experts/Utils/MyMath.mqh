@@ -20,6 +20,7 @@ public:
                     static double FindClosest(double &array[], double value);
                     static void ReverseArray(double &src_array[], double & des_array[]);
                     static int FindIdxByValue(double &src_array[], double value);
+                    static double GetMinimumValue(double &src_array[]);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -73,4 +74,10 @@ static int MyMath::FindIdxByValue(double &src_array[], double value)
       }
     }
     return found_idx;
+}
+
+static double MyMath::GetMinimumValue(double &src_array[])
+{
+   int MinIdx = ArrayMinimum(src_array, WHOLE_ARRAY, 0);
+   return src_array[MinIdx];
 }
