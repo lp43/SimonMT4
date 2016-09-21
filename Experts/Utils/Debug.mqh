@@ -20,6 +20,7 @@ public:
                      Debug();
                     ~Debug();
                     static void PrintArray(double &array[]);
+                    static void PrintArray(Cursor &cursor);
                     static void PrintPosition(Cursor &cursor, int positionIdx);
                     static void PrintPosition(Cursor &cursor, int & position[]);
   };
@@ -42,6 +43,13 @@ static void Debug::PrintArray(double &array[])
    {
       Alert("["+i+"] "+array[i]);
    }
+}
+
+static void Debug::PrintArray(Cursor &cursor)
+{  
+   double SquareArray[];
+   cursor.GetSquareArray(SquareArray);
+   PrintArray(SquareArray);
 }
 
 static void Debug::PrintPosition(Cursor &cursor, int positionIdx)
