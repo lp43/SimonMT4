@@ -21,6 +21,7 @@ public:
                     static void ReverseArray(double &src_array[], double & des_array[]);
                     static int FindIdxByValue(double &src_array[], double value);
                     static double GetMinimumValue(double &src_array[]);
+                    static void DeleteConsecutiveNums(double &src_array[], double begin_value, double step);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
@@ -80,4 +81,31 @@ static double MyMath::GetMinimumValue(double &src_array[])
 {
    int MinIdx = ArrayMinimum(src_array, WHOLE_ARRAY, 0);
    return src_array[MinIdx];
+}
+
+static void MyMath::DeleteConsecutiveNums(double &src_array[], double begin_value, double step)
+{
+   double temp[];
+   int array_size = ArraySize(src_array);
+   if(array_size>=2){
+      for(int i = 0; i < array_size; i++){
+         if(i==0){
+            if(src_array[0]-step!=begin_value){
+               int tmp_size = ArraySize(temp);
+               ArrayResize(temp, ++tmp_size);
+               temp[tmp_size-1]=src_array[0];
+            }
+         }else{
+            if(src_array[i]-step!=src_array[i-1]){
+               Alert("i is: "+i);
+               int tmp_size = ArraySize(temp);
+               ArrayResize(temp, ++tmp_size);
+               temp[tmp_size-1]=src_array[i];
+            }
+         }
+      }
+      ArrayResize(src_array, ArraySize(temp), 0);
+      ArrayCopy(src_array, temp, 0, 0, WHOLE_ARRAY);
+   }
+
 }
