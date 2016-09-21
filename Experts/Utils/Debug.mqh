@@ -19,8 +19,8 @@ private:
 public:
                      Debug();
                     ~Debug();
-                    static void PrintArray(double &array[]);
-                    static void PrintArray(Cursor &cursor);
+                    static void PrintArray(string msg,double &array[]);
+                    static void PrintArray(string msg,Cursor &cursor);
                     static void PrintPosition(Cursor &cursor, int positionIdx);
                     static void PrintPosition(Cursor &cursor, int & position[]);
   };
@@ -37,19 +37,19 @@ Debug::~Debug()
   {
   }
 //+------------------------------------------------------------------+
-static void Debug::PrintArray(double &array[])
+static void Debug::PrintArray(string msg, double &array[])
 {
    for(int i =0; i<ArraySize(array);i++)
    {
-      Alert("["+i+"] "+array[i]);
+      Alert(msg+":::"+"["+i+"] "+array[i]);
    }
 }
 
-static void Debug::PrintArray(Cursor &cursor)
+static void Debug::PrintArray(string msg, Cursor &cursor)
 {  
    double SquareArray[];
    cursor.GetSquareArray(SquareArray);
-   PrintArray(SquareArray);
+   PrintArray(msg, SquareArray);
 }
 
 static void Debug::PrintPosition(Cursor &cursor, int positionIdx)
