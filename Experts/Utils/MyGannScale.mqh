@@ -37,7 +37,7 @@ static double MyGannScale::ConvertToGannValue(string symbol,double value)
      double GannValue = EMPTY_VALUE;
      if(symbol == "USDJPY"){
          
-         GannValue = NormalizeDouble(value, 1);
+         GannValue = MathRound(value * 10);
          //Alert("iLow: "+value+" , Gann Value => "+GannValue);
      }
      return GannValue;
