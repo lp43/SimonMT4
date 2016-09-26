@@ -10,35 +10,47 @@
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-class MyGannScale
+class GannScale
   {
 private:
 
 public:
-                     MyGannScale();
-                    ~MyGannScale();
+                     GannScale();
+                    ~GannScale();
                     static double ConvertToGannValue(string symbol, double value);
+                    static double ConvertToValue(string symbol, double gann_value);
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-MyGannScale::MyGannScale()
+GannScale::GannScale()
   {
   }
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-MyGannScale::~MyGannScale()
+GannScale::~GannScale()
   {
   }
 //+------------------------------------------------------------------+
-static double MyGannScale::ConvertToGannValue(string symbol,double value)
+static double GannScale::ConvertToGannValue(string symbol,double value)
   {
-     double GannValue = EMPTY_VALUE;
+     double gannValue = EMPTY_VALUE;
      if(symbol == "USDJPY"){
          
-         GannValue = MathRound(value * 10);
-         //Alert("iLow: "+value+" , Gann Value => "+GannValue);
+         gannValue = NormalizeDouble(value * 10, 0);
+         //Alert("iLow: "+value+" , Gann Value => "+gannValue);
      }
-     return GannValue;
+     return gannValue;
+  }
+  
+static double GannScale::ConvertToValue(string symbol,double gann_value)
+  {
+     double value = EMPTY_VALUE;
+     if(symbol == "USDJPY"){
+         
+         value = NormalizeDouble(gann_value / 10, Digits);
+         //Alert("gann_value: "+gann_value+" , Value => "+DoubleToStr(value, Digits));
+     }
+     return value;
   }
