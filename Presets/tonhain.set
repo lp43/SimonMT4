@@ -1,0 +1,14 @@
+MinimumMarginPercentage=3500.0
+BasketTrailingJumpStart=5000000
+BasketTrailingJump=5000000
+levels=5
+distance=25
+TradingMode=2
+TP=50
+SL=0.0
+TrailingStop=100000
+StartTrailAtProfitPips=100000
+Lots=0.01
+BasketTP=5000000
+TradeBlueArrow=false
+Martingale=1.0
