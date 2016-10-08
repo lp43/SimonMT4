@@ -15,7 +15,7 @@ class Constellate
 private:
 
 public:
-                     Constellate(const Constellate&);
+                     Constellate();
                     ~Constellate();
                 
    double value;
@@ -24,7 +24,7 @@ public:
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-Constellate::Constellate(const Constellate&)
+Constellate::Constellate()
   {
   }
 //+------------------------------------------------------------------+
