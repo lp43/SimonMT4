@@ -1,0 +1,16 @@
+magicnum=60
+MinimumMarginPercentage=3500.0
+BasketTrailingJumpStart=99999.0
+BasketTrailingJump=50.0
+levels=3
+distance=100.0
+TradingMode=2
+TP=100.0
+SL=0.0
+TrailingStop=6.0
+StartTrailAtProfitPips=99999.0
+Lots=0.01
+BasketTP=40.0
+WindowOpen=00:00
+WindowClose=00:00
+Martingale=1.0
