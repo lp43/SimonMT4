@@ -19,11 +19,13 @@
 //--- indicator buffers
 double         LineBuffer[];
 
+
 //+------------------------------------------------------------------+
 //| Custom indicator initialization function                         |
 //+------------------------------------------------------------------+
 int OnInit()
   {
+  Alert("OnInit");
 //--- indicator buffers mapping
    SetIndexBuffer(0,LineBuffer,INDICATOR_DATA);
 //---
@@ -32,7 +34,21 @@ int OnInit()
   
   int start()
 {
-   Alert("start");
+   
+   int counted = IndicatorCounted();
+   int countBars = Bars;
+  
+   
+   int limit;
+   int counted_bars=IndicatorCounted();
+   Alert("Before counted_bars: "+counted_bars);
+//---- check for possible errors
+   if(counted_bars<0) return(-1);
+//---- the last counted bar will be recounted
+   if(counted_bars>0) counted_bars--;
+   limit=Bars-counted_bars;
+   Alert("limit"+limit+" = Bars"+Bars+" - counted_bars"+counted_bars);
+      
    return(0);
 }
 //+------------------------------------------------------------------+

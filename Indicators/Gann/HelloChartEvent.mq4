@@ -49,5 +49,8 @@ void OnChartEvent(const int id,
    if (id==CHARTEVENT_CLICK) {
       Alert("Chart Event Click");
    }
+   if(id==CHARTEVENT_CHART_CHANGE){
+         Alert("CHARTEVENT_CHART_CHANGE");
+   }
   }
 //+------------------------------------------------------------------+
