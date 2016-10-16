@@ -18,7 +18,7 @@ public:
                      CursorValue();
                     ~CursorValue();
                     double value;
-                    int position[];
+                    int circle_num;
   };
 //+------------------------------------------------------------------+
 //|                                                                  |
